@@ -132,7 +132,5 @@ ls -xamp
 
 
 school.mgc
-
-0 string HOLBERTON Holberton data
-
-!:mime Holberton
+#!/bin/bash
+0 string SCHOOL School data file
