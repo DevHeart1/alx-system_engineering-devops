@@ -1,2 +1,4 @@
+Script that switches the current user to the user betty.
 #!/bin/bash
-chown betty 0-iam_betty
+su betty\n
+
