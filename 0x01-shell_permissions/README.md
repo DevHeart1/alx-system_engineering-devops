@@ -20,4 +20,4 @@ sudo chown betty hello
 
 script that creates an empty file called hello.
 #!/bin/bash
-touch
+touch hello
