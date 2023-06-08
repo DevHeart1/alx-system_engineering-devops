@@ -21,3 +21,8 @@ sudo chown betty hello
 script that creates an empty file called hello.
 #!/bin/bash
 touch hello
+
+
+script that adds execute permission to the owner of the file hello.
+#!/bin/bash
+chmod u+x hello
