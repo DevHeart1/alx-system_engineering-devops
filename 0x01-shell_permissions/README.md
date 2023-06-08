@@ -26,3 +26,8 @@ touch hello
 script that adds execute permission to the owner of the file hello.
 #!/bin/bash
 chmod u+x hello
+
+
+script that adds execute permission to the owner and the group owner, and read permission to other users, to the file hello
+#!/bin/bash
+chmod ug+x o+r hello
