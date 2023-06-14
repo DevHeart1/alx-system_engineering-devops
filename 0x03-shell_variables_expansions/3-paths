@@ -1,2 +1,2 @@
 #!/bin/bash
-num_directories=$(IFS=:; set -- $path; echo $#)
+echo $((`echo $PATH | grep -o ":/" | wc -l`+ 1))
