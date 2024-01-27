@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#script for installation and setting up of Nginx
+
+# Update the package list
+sudo apt-get -y update
+
+# Install Nginx
+sudo apt-get install -y nginx
+
+#ensure Nginx is listening at port 80
+sudo ufw allow 'Nginx HTTP'
+
+#To set up a default page
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+
+# Configure Nginx server so /redirect_me is redirecting to another page.
+sudo sed -i "/server {/a \    location \/redirect_me { return 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4; }" /etc/nginx/sites-available/default
+
+#Restrt ninx without using systemctl
+sudo service nginx restart
