@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#Configure a new Nginx server to display a custom http response header
+
+# Update the package list
+sudo apt-get -y update
+sudo apt-get install -y nginx
+
+#To listen at port 80
+sudo ufw allow 'Nginx HTTP'
+
+#To display a custom script on the home  page
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+#For printing 404 and a custom message whenn an error is encountered
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+sed -i 's/server_name _;/server_name _;\n\trewrite \/redirect_me https:\/\/www.youtube.com\/watch\?v=QH2-TGUlwu4 permanent;\n\terror_page 404 \/404.html;\n\tlocation \/404.html{\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}/' /etc/nginx/sites-enabled/default
+
+#To customise the http header
+sudo sed -i '24i\\n\tadd_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+
+#To restart the nginx
+sudo service nginx restart
