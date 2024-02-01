@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#Configure a new Nginx server to display a custom http response header
+
+# Update the package list
+sudo apt-get -y update
+sudo apt-get install -y nginx
+
+#To listen at port 80
+sudo ufw allow 'Nginx HTTP'
+
+#To display a custom script on the home  page
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+#For printing 404 and a custom message whenn an error is encountered
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+sudo sed -i '47i\\n\terror_page 404 /404.html;' /etc/nginx/sites-available/default
+
+#To customise the http header
+sudo sed -i '24i\\n\tadd_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+
+#To restart the nginx
+sudo service nginx restart
