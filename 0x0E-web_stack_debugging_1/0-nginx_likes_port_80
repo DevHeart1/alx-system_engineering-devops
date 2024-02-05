@@ -1,15 +1,9 @@
 #!/usr/bin/env bash
-#script to debug our nginx configuration ad make it listen on port 80
+#script to debug our nginx configuration and make it listen on port 80
 
-# Install Nginx if not installed
-sudo apt-get update
-sudo apt-get install -y nginx
-
-# Check and update Nginx configuration
-sudo sed -i 's/listen [0-9]\+;/listen 80;/' /etc/nginx/sites-available/default
-
-# Allow port 80 in the firewall (if using ufw)
-sudo ufw allow 80
+#You first delete the configuration in your sites-enabled then make it sink with your sites-available by linking them
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Restart Nginx
 sudo systemctl restart nginx

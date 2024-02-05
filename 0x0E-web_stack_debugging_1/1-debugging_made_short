@@ -3,3 +3,4 @@
 cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 service nginx restart
 sudo service nginx stop
+ 
