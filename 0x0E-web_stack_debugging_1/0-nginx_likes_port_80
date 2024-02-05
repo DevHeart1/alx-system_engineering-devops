@@ -2,8 +2,8 @@
 #script to debug our nginx configuration and make it listen on port 80
 
 #You first delete the configuration in your sites-enabled then make it sink with your sites-available by linking them
-sudo rm /etc/nginx/sites-enabled/default
-sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Restart Nginx
-sudo systemctl restart nginx
+service nginx restart
