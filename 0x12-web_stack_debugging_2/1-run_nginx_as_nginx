@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 # This sript makes nignx run as nginx user and  listen on all active IPs on port 8080
 
-# Stop nginx service
-service nginx stop
-
 # Modify nginx configuration to run as nginx user
 sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
 
