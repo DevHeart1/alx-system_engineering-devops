@@ -10,5 +10,12 @@ sed -i 's/user\s*nginx;/user nginx nginx;/g' /etc/nginx/nginx.conf
 # Ensure nginx listens on all active IPs on port 8080
 sed -i 's/listen\s*80;/listen *:8080;/g' /etc/nginx/sites-available/default
 
+#sets the permissions of the nginx configuration file to read-write for the owner and read-only for others.
+chmod 644 /etc/nginx/nginx.conf
+
+#kills the Apache2 process if it's running to avoid conflict.
+pkill apache2
+
 # Start nginx service
-service nginx start
+sudo -u nginx service nginx start
+
