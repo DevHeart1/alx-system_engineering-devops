@@ -6,11 +6,11 @@ from sys import argv
 if __name__ == "__main__":
     employer_id = int(argv[1])
     empl_name = requests.get(
-            "https://jsonplaceholder.typicode.com/users/{}".format(
-                employer_id)).json()["name"]
+        "https://jsonplaceholder.typicode.com/users/{}".format(
+            employer_id)).json()["name"]
     todo_list = requests.get(
-            "https://jsonplaceholder.typicode.com/users/{}/todos".format(
-                employer_id)).json()
+        "https://jsonplaceholder.typicode.com/users/{}/todos".format(
+            employer_id)).json()
 
     tasks = len(todo_list)
     done_with = 0
