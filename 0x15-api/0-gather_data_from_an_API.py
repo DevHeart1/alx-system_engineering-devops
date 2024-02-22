@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-'''This Python module is used to gather data from an API and it returns JSON files'''
+'''This Python module is used to gather data from an
+API and it returns JSON files'''
 import requests
 from sys import argv
 
