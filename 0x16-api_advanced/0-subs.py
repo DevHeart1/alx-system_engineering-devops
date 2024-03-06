@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    This is a module that queries the reddit API 
+    This is a module that queries the reddit API
     and returns the number of subscribers of a given subreddit
 """
 import requests
