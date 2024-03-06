@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
     This is a module that queries the reddit API
-    and prints the titles of the first 10 hot posts listed for a given subreddit.
+    and prints the titles of the first 10 hot posts
+    listed for a given subreddit.
 """
 import requests
 
